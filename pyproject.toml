@@ -1,7 +1,7 @@
 [project]
-name = "prml-rl-finetuning"
+name = "lora-without-regret-draft"
 version = "0.1.0"
-description = "PRML Course Final Project: RL Fine-Tuning for LLMs"
+description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -14,4 +14,15 @@ dependencies = [
     "transformers>=4.57.1",
     "vllm==0.10.2",
     "wandb>=0.22.2",
+    # Added from current environment
+    "fastapi>=0.125.0",
+    "gradio>=3.50.2",
+    "matplotlib>=3.10.8",
+    "pandas>=2.3.3",
+    "scipy>=1.15.3",
+    "tensorflow>=2.20.0",
+    "uvicorn>=0.38.0",
+    "opencv-python-headless>=4.12.0.88",
+    "scikit-image>=0.25.2",
+    "tensorboard>=2.20.0",
 ]

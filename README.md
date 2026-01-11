@@ -23,49 +23,42 @@ This is the companion code for the PRML (Pattern Recognition and Machine Learnin
 ## Project Structure
 
 ```
-├── train.py              # Unified training entry point
+├── train.py                   # Unified training entry point
+├── math_utils.py              # Answer verification
+├── boxed.prompt               # Prompt template
+├── pyproject.toml             # Project dependencies
 ├── src/
-│   ├── trainer.py        # GRPOTrainer class
-│   ├── rewards.py        # Reward functions
-│   ├── losses.py         # Loss functions
+│   ├── __init__.py
+│   ├── trainer.py             # GRPOTrainer class
+│   ├── rewards.py             # Reward functions
+│   ├── losses.py              # Loss functions
 │   └── utils/
-│       ├── vllm_utils.py    # vLLM client
-│       └── tokenization.py  # Tokenization utils
-├── math_utils.py         # Answer verification
-├── boxed.prompt          # Prompt template
-└── skywork_o1_prm_inference/  # PRM model
+│       ├── __init__.py
+│       ├── vllm_utils.py      # vLLM client
+│       └── tokenization.py    # Tokenization utils
+└── skywork_o1_prm_inference/  # PRM model (git submodule)
 ```
 
 ## Environment Setup
 
-### Requirements
-
-- Python >= 3.13
-- PyTorch >= 2.8.0
-- Transformers >= 4.57.1
-- PEFT >= 0.17.1
-- vLLM == 0.10.2
-- Datasets >= 4.2.0
-- WandB >= 0.22.2
-
-### Installation
+All dependencies are defined in `pyproject.toml`. Use [uv](https://docs.astral.sh/uv/) for installation:
 
 ```bash
-# install submodule
+# Install submodule (for PRM model)
 git submodule update --init --recursive
 
-# Using uv (recommended)
+# Install dependencies
 uv sync
-source .venv/bin/activate
-
-# Or using pip
-pip install -e .
 ```
 
 ## Quick Start
 
 ### 1. Start vLLM Server
 ```bash
+# Activate environment and start vLLM server
+source .venv/bin/activate  # Linux/macOS
+# or: .venv\Scripts\activate  # Windows
+
 export VLLM_ALLOW_RUNTIME_LORA_UPDATING=True
 vllm serve Qwen/Qwen3-1.7B --enable-lora
 ```
@@ -87,8 +80,11 @@ uv run train.py --lora_r 16  # rank-16
 
 ### Experiment 2: RL Techniques
 ```bash
-# Baseline (recommended)
+# Baseline with std normalization (recommended)
 uv run train.py
+
+# Without std normalization
+uv run train.py --no_std_norm
 
 # With KL penalty (degrades performance)
 uv run train.py --use_kl_penalty
