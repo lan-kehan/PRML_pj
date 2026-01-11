@@ -1,3 +1,5 @@
+> This project is the final project for the PRML course: [Pattern Recognition and Machine Learning](https://github.com/OpenMOSS/FDU-PRML-2025Fall.git)
+
 # PRML Course Final Project: RL Fine-Tuning for LLMs
 
 > **Occam's Razor for RL Fine-Tuning: The Simple Design Is Efficient and Sufficient**
@@ -123,3 +125,7 @@ python train.py --use_prm --process_reward_weight 0.5
 ## License
 
 MIT License
+
+## Acknowledgement
+
+This project is inspired by the LoRA blog post from Thinking Machines: [LoRA: Low-Rank Adaptation of Large Language Models](https://thinkingmachines.ai/blog/lora/)
