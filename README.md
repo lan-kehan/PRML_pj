@@ -48,9 +48,6 @@ This is the companion code for the PRML (Pattern Recognition and Machine Learnin
 All dependencies are defined in `pyproject.toml`. Use [uv](https://docs.astral.sh/uv/) for installation:
 
 ```bash
-# Install submodule (for PRM model)
-git submodule update --init --recursive
-
 # Install dependencies
 uv sync
 ```
