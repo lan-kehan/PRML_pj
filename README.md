@@ -2,7 +2,7 @@
 
 # PRML Course Final Project: RL Fine-Tuning for LLMs
 
-> **Occam's Razor for RL Fine-Tuning: The Simple Design Is Efficient and Sufficient**
+> Our report: [**Occam's Razor for RL Fine-Tuning: The Simple Design Is Efficient and Sufficient**](assets/prml_25_pj.pdf)
 
 This is the companion code for the PRML (Pattern Recognition and Machine Learning) course final project. We study efficient RL fine-tuning of Large Language Models using GRPO with LoRA. We mainly focus on **3 questions**:
 
@@ -130,3 +130,5 @@ uv run train.py --use_prm --process_reward_weight 0.5
 ## Acknowledgement
 
 This project is inspired by [LoRA without regret](https://thinkingmachines.ai/blog/lora/) and its reproduction [code](https://github.com/michaelbzhu/lora-without-regret/)
+
+Claims in our report and this repos are based on our simple experiment settings and are just for reference.
